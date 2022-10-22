@@ -90,7 +90,7 @@ p{
     margin-top: 0.7rem;
    }
 .menu li:hover {
-    background-color: var(--myGreen);
+    background-color: #00bd68;
     border-radius: 5px;
     transition: 0.3s ease;
     font-size: 1.5rem;
@@ -576,6 +576,18 @@ footer{
 
  /* ARTICLES AND EVENTS */
 
+ /* #article_animation{
+    animation-name: animation-fade-in;
+    animation-delay: 5s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes animation-fade-in{
+        from { opacity: 0; }
+        to { opacity: 1; }
+  } */
+
  .gallery-container {
     position: relative;
     display: flex;
@@ -603,26 +615,42 @@ footer{
   }
   
   .slides {
+    position: relative;
+    left: 0rem;
     margin: 0 16px;
     display: grid;
     grid-auto-flow: column;
     gap: 1rem;
     width: 400px;
     padding: 0 0.25rem;
-    height: 720px;
+    height: 700px;
     overflow-y: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
   }
-  
+
+.slide:hover{
+    animation-name: slide_hover;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes slide_hover{
+        from { width: 400px; }
+        to { width: 900px; }
+  } 
+
   .slides > div {
     scroll-snap-align: start;
   }
   
   .slides img {
-    width: 400px;
+    position: relative;
+    top: -100px;
+    height: 450px;
     object-fit: contain;
+    border-radius: 5%;
   }
   
   .slides::-webkit-scrollbar {
@@ -631,35 +659,35 @@ footer{
 
   /* Article fade in */
 
-/* #article_animation{
-    opacity: 0;
+#article_animation{
+    opacity: 1;
 }
 
-#article_animation{
-    animation-name: animation-fade-in;
-    animation-delay: 5s;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
 
-  @keyframes animation-fade-in{
-        from { opacity: 0; }
-        to { opacity: 1; }
-  } */
+/* ARTICLE STYLING */
 
+.article_card h2{
+    color: white;
+}
 
-  .article_card{
+.articleEls{
+    width: 80%;
+    margin: auto;
+}
+
+.article_card{
     background-color: var(--myGreen);
-    background-image: url(./bilder/blob);
     height: 550px;
     width: 400px;
     border-radius: 2%;
   }
 
-  .article_text{
-    z-index: 9;
-    position: absolute;
-    color: black;
+.article_text{
+    position: relative;
+    top: -7rem;
+}
 
-
-  }
+.article_text h2{
+    font-weight: 500;
+    font-size: 1rem;
+}

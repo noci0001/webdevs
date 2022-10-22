@@ -14,42 +14,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
     </style>
-    <script>
-
-            const slideGallery = document.querySelector('.slides');
-            const slides = slideGallery.querySelectorAll('div');
-            const thumbnailContainer = document.querySelector('.thumbnails');
-            const slideCount = slides.length;
-            const slideWidth = 540;
-
-            const highlightThumbnail = () => {
-            thumbnailContainer
-                .querySelectorAll('div.highlighted')
-                .forEach(el => el.classList.remove('highlighted'));
-            const index = Math.floor(slideGallery.scrollLeft / slideWidth);
-            thumbnailContainer
-                .querySelector(`div[data-id="${index}"]`)
-                .classList.add('highlighted');
-            };
-
-            const scrollToElement = el => {
-            const index = parseInt(el.dataset.id, 10);
-            slideGallery.scrollTo(index * slideWidth, 0);
-            };
-
-            thumbnailContainer.innerHTML += [...slides]
-            .map((slide, i) => `<div data-id="${i}"></div>`)
-            .join('');
-
-            thumbnailContainer.querySelectorAll('div').forEach(el => {
-            el.addEventListener('click', () => scrollToElement(el));
-            });
-
-            slideGallery.addEventListener('scroll', e => highlightThumbnail());
-
-            highlightThumbnail();
-
-    </script>
+    <script src="script.js"></script>
 </head>
     
 <!-- ALWAYS ON HOME BUTTON -->
@@ -94,29 +59,61 @@
     
 </div>
 
+
+
+
 <!-- ARTICLES AND EVENTS -->
 
 <span id="article_animation">
     <div class="gallery-container" style="position: absolute; top: 10rem; left: 5rem;">
         <div class="thumbnails"></div>
-        <div class="slides">
-        <div>
-            <div class="article_card">
-            </div>
-            <!-- <img src="./bilder/Article-card.png">
-            <div class="article_text">
-                <h1>How to propagate Chestnut trees</h1>
-                <p> Chestnut trees are know for their properties of...</p>
-            </div> -->
-        </div>
-        <div><img src="./bilder/Article-card.png"></div>
-        <div><img src="./bilder/Article-card.png"></div>
-        <div><img src="./bilder/Article-card.png"></div>
-        <div><img src="./bilder/Article-card.png"></div>
-        <div><img src="./bilder/Article-card.png"></div>
+        <div class="slides" id="cards" >
+            
         </div>
     </div>
 </span>
+
+<script>
+    fetch('articles.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    function appendData(data) {
+
+
+        var cards = document.getElementById("cards");
+
+        for (var i = 0; i < data.length; i++) {
+            
+            cards.innerHTML += `
+            <div class= "article_card" id="myData">
+                <div class="articleEls">
+                    <img src="./bilder/default_permaculture_article_img.png"/>
+                    <div class="article_text">
+                        <h1 id="Title${i}"> </h1>
+                        <h3 id="ReleaseDate${i}"></h3>
+                        <h2 id="BriefDesc${i}"></h2>
+                        <h3> Read more </a></h3></div>
+                    </div>
+                </div>
+            `;
+
+            var title = document.getElementById("Title" + i);
+            var ReleaseDate = document.getElementById("ReleaseDate" + i);
+            var BriefDesc = document.getElementById("BriefDesc" + i);
+
+            title.innerHTML = data[i].title;
+            ReleaseDate.innerHTML = data[i].release_date;
+            BriefDesc.innerHTML = data[i].briefdesc;
+        }
+    }
+</script>
 
 
 <!-- REDIRECTION -->
