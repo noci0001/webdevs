@@ -7,12 +7,49 @@
     <title>Efferus Forlag</title>
     <link rel="shortcut icon" href="bilder/deciduous-tree.ico">
     <link href="main_styles.css" rel="stylesheet" type="text/css"/>
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
     </style>
+    <script>
+
+            const slideGallery = document.querySelector('.slides');
+            const slides = slideGallery.querySelectorAll('div');
+            const thumbnailContainer = document.querySelector('.thumbnails');
+            const slideCount = slides.length;
+            const slideWidth = 540;
+
+            const highlightThumbnail = () => {
+            thumbnailContainer
+                .querySelectorAll('div.highlighted')
+                .forEach(el => el.classList.remove('highlighted'));
+            const index = Math.floor(slideGallery.scrollLeft / slideWidth);
+            thumbnailContainer
+                .querySelector(`div[data-id="${index}"]`)
+                .classList.add('highlighted');
+            };
+
+            const scrollToElement = el => {
+            const index = parseInt(el.dataset.id, 10);
+            slideGallery.scrollTo(index * slideWidth, 0);
+            };
+
+            thumbnailContainer.innerHTML += [...slides]
+            .map((slide, i) => `<div data-id="${i}"></div>`)
+            .join('');
+
+            thumbnailContainer.querySelectorAll('div').forEach(el => {
+            el.addEventListener('click', () => scrollToElement(el));
+            });
+
+            slideGallery.addEventListener('scroll', e => highlightThumbnail());
+
+            highlightThumbnail();
+
+    </script>
 </head>
     
 <!-- ALWAYS ON HOME BUTTON -->
@@ -44,12 +81,43 @@
     </ul>
 </nav>
 
+<!-- HERO SECTION -->
+
 <div class="hero-image">
+
     <div class="hero-text">
+        <span style="overflow: hidden; animation-delay: 3s;" class="anim-fade-out">
           <p style="font-size: 20px; padding: 2rem; font-family: 'Fasthand', cursive; letter-spacing: 2rem;">VELKOMMEN TIL</p>
           <div class="logo"><a href="/NEW_index.html"><img src="bilder/Efferus_logo_white.PNG" width="300px" alt="efferus_logo"/></a></div>
+        <span>
     </div>
+    
 </div>
+
+<!-- ARTICLES AND EVENTS -->
+
+<span id="article_animation">
+    <div class="gallery-container" style="position: absolute; top: 10rem; left: 5rem;">
+        <div class="thumbnails"></div>
+        <div class="slides">
+        <div>
+            <div class="article_card">
+            </div>
+            <!-- <img src="./bilder/Article-card.png">
+            <div class="article_text">
+                <h1>How to propagate Chestnut trees</h1>
+                <p> Chestnut trees are know for their properties of...</p>
+            </div> -->
+        </div>
+        <div><img src="./bilder/Article-card.png"></div>
+        <div><img src="./bilder/Article-card.png"></div>
+        <div><img src="./bilder/Article-card.png"></div>
+        <div><img src="./bilder/Article-card.png"></div>
+        <div><img src="./bilder/Article-card.png"></div>
+        </div>
+    </div>
+</span>
+
 
 <!-- REDIRECTION -->
 
@@ -75,20 +143,6 @@
         <!-- <button class="green_button" style="width: 7.5rem;" role="button"><a style="color:white;">'Dyrking av storhassel i Norge'</a></button> -->
     </div>
 </div>
-
-<!-- <main>
-<img class="zero" src="plantedatabase/plantebilder/bunndekke.jpg" width="160*8"/>
-    <div class="hero">
-        <a class="one" href="skoghagebilder.html" target="_blank">  <img src="plantedatabase/plantebilder/forside5.jpg" width="160"></a> 
-        <a class="three" href="skoghagebilder.html" target="_blank"><img src="plantedatabase/plantebilder/forside4.jpg" width="160"></a> 
-        <a class="four" href="skoghagebilder.html" target="_blank"><img src="plantedatabase/plantebilder/forside3.jpg" width="160"></a> 
-        <a class="five" href="skogshop.html" target="_blank"><img src="plantedatabase/plantebilder/forside8.jpg" width="160"></a> 
-        <a class="six" href="soppdyrkbilder.html" target="_blank">  <img src="plantedatabase/plantebilder/forside2.jpg" width="160"></a> 
-        <a class="seven" href="skoghagebilder.html" target="_blank">  <img src="plantedatabase/plantebilder/forside7.jpg" width="160"></a> 
-        <a class="eight" href="soppdyrkbilder.html" target="_blank">  <img src="plantedatabase/plantebilder/forside6.jpg" width="160"></a> 
-        <a class="nine" href="soppdyrkbilder.html" target="_blank"><img src="plantedatabase/plantebilder/forside9.jpg" width="160"></a> 
-    </div> 
-</main>  -->
 
 <footer>
     <div class="footer-content">
