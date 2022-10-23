@@ -576,7 +576,7 @@ footer{
 
  /* ARTICLES AND EVENTS */
 
- /* #article_animation{
+ #article_animation{
     animation-name: animation-fade-in;
     animation-delay: 5s;
     animation-duration: 3s;
@@ -586,7 +586,7 @@ footer{
   @keyframes animation-fade-in{
         from { opacity: 0; }
         to { opacity: 1; }
-  } */
+  }
 
  .gallery-container {
     position: relative;
@@ -630,17 +630,6 @@ footer{
     scrollbar-width: none;
   }
 
-.slide:hover{
-    animation-name: slide_hover;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes slide_hover{
-        from { width: 400px; }
-        to { width: 900px; }
-  } 
-
   .slides > div {
     scroll-snap-align: start;
   }
@@ -660,7 +649,7 @@ footer{
   /* Article fade in */
 
 #article_animation{
-    opacity: 1;
+    opacity: 0;
 }
 
 
