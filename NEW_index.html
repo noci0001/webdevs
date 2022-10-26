@@ -41,6 +41,8 @@
           <a href="./database.html">Database</a>
         </li>
         <li><a href="./hvemer.html">Hvem er Efferus?</a></li>
+        <li><a href="./vision.html">Vår visjon</a></li>
+        <li><a href="./events/visitUs.html">Besøk oss</a></li>
         <li><a href="./kontakt.html">Kontakt</a></li>
       </div>
     </ul>
@@ -51,30 +53,35 @@
 <div class="hero-image">
 
     <div class="hero-text">
-        <span style="overflow: hidden; animation-delay: 3s;" class="anim-fade-out">
+        <span id="welcome_element">
           <p style="font-size: 20px; padding: 2rem; font-family: 'Fasthand', cursive; letter-spacing: 2rem;">VELKOMMEN TIL</p>
           <div class="logo"><a href="/NEW_index.html"><img src="bilder/Efferus_logo_white.PNG" width="300px" alt="efferus_logo"/></a></div>
-        <span>
+        </span>
     </div>
     
 </div>
 
-
-
-
 <!-- ARTICLES AND EVENTS -->
 
-<span id="article_animation">
-    <div class="gallery-container" style="position: absolute; top: 10rem; left: 5rem;">
-        <div class="thumbnails"></div>
-        <div class="slides" id="cards" >
-            
+<span id="article_animation" style="display:flex; position: absolute; top: 15rem; left: 5rem;">
+    <div class="gallery-container" >
+        <div>
+            <h1 style="color: white;">Redaktørens valg:</h1>
+            <button class="button-33" role="button"><a href="./articles/articles.html">Vil du lese mer?</a></button>
         </div>
+        <div class="thumbnails"></div>
+            <div class="slides" id="cards" style="position: absolute; left: 18rem; z-index: 99;"></div>
+        </div>
+    </div>
+    <div style="position:relative; left: 26rem;">
+    <iframe width="700" height="400" src="https://www.youtube.com/embed/Vbg81kc56FU" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </span>
 
-<script>
-    fetch('articles.json')
+<script >
+
+    fetch('articles/articles.json')
         .then(function (response) {
             return response.json();
         })
@@ -89,19 +96,17 @@
 
         var cards = document.getElementById("cards");
 
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < 3; i++) {
             
             cards.innerHTML += `
-            <div class= "article_card" id="myData">
-                <div class="articleEls">
-                    <img src="./bilder/default_permaculture_article_img.png"/>
-                    <div class="article_text">
-                        <h1 id="Title${i}"> </h1>
-                        <h3 id="ReleaseDate${i}"></h3>
-                        <h2 id="BriefDesc${i}"></h2>
-                        <h3> Read more </a></h3></div>
-                    </div>
-                </div>
+            <div class="article_card" id="myData" >
+                <div class="article_text" style="background:white; width:300px; ">
+                    <h1 id="Title${i}"> </h1>
+                    <h3 id="ReleaseDate${i}"></h3>
+                    <h2 id="BriefDesc${i}"></h2>
+                    <h3><a href="${data[i].path}"> Read more </a></h3>
+                </div>   
+            </div>
             `;
 
             var title = document.getElementById("Title" + i);
@@ -117,6 +122,7 @@
 
 
 <!-- REDIRECTION -->
+
 
 <div class="redirection_section">
     <div class="redirection_photo">

@@ -1,8 +1,10 @@
+
 const slideGallery = document.querySelector('.slides');
 const slides = slideGallery.querySelectorAll('div');
 const thumbnailContainer = document.querySelector('.thumbnails');
 const slideCount = slides.length;
 const slideWidth = 540;
+
 
 const highlightThumbnail = () => {
 thumbnailContainer
@@ -29,5 +31,16 @@ el.addEventListener('click', () => scrollToElement(el));
 
 slideGallery.addEventListener('scroll', e => highlightThumbnail());
 
-highlightThumbnail();            
+highlightThumbnail();   
+
+
+    const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
+
+    buttonRight.onclick = function () {
+      document.getElementById('cards').scrollLeft += 20;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('cards').scrollLeft -= 20;
+    };
         
