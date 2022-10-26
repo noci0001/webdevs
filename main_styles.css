@@ -684,7 +684,6 @@ footer{
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    
   }
 
 /* HOVER ANIMATION SLIDES */
@@ -693,7 +692,6 @@ footer{
     animation-name: slides-hover;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-    
   }
 
 @keyframes slides-hover{
@@ -829,3 +827,70 @@ footer{
     background-color: #00BD68;
     height: 100vh;
 }
+
+
+/* NEWSLETTER STYLING */
+
+.container{
+    background: url(./bilder/newsletter_background.jpg) no-repeat center;
+    background-size: cover;
+    padding: 100px 40px;
+    text-align: center;
+    color: white;
+}
+
+.container p{
+    max-width: 600px;
+    margin: 40px auto;
+    font-size: 15px;
+    font-weight: 300;
+
+}
+
+.email-box{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.email-box img{
+    background: #2f3542;
+    width: 40px;
+    line-height: 40px;
+    padding: 5px;
+}
+
+.tbox, .btn5{
+    border: none;
+    outline: none;
+}
+
+.tbox{
+    width: 0;
+    transition: 0.6s;
+}
+
+.email-box:hover > .tbox,.tbox:focus{
+    width: 260px;
+    padding: 0 10px;
+}
+
+.btn5{
+    background: #2f3542;
+    color: white;
+    padding: 0 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.container_textbox{
+    border: 2.5px solid white;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #2f3542;
+    max-width: 600px;
+    margin: 40px auto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
