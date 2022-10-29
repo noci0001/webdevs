@@ -204,6 +204,10 @@ input[type=checkbox]{
 
 /* HERO SECTION 2 */
 
+body, html {
+    height: 100%;
+}
+
 /* The hero image */
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./bilder/hero_img.png");
@@ -215,24 +219,13 @@ input[type=checkbox]{
 }
 
 
-/* .hero-text {
+.hero-text {
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-} */
-
-#welcome_element {
-    color: white;
-    width: 70%;
-    display: inline-flex;
-}
-
-#welcome_element img{
-    padding: 1rem;
-    width: 150px;
 }
 
 /* REDIRECTION */
@@ -612,8 +605,8 @@ footer{
 
  #article_animation{
     animation-name: animation-fade-in;
-    animation-delay: 1s;
-    animation-duration: 1s;
+    animation-delay: 5s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
   }
 

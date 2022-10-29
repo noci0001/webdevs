@@ -17,13 +17,13 @@
 </head>
     
 <!-- ALWAYS ON HOME BUTTON -->
-<a href="/NEW_index.html"><img id=left_space style="position: fixed; top: 1.5rem;" src="../bilder/Efferus_logo_black.png" width="100px"></a>
+<a href="/index.html"><img id=left_space style="position: fixed; top: 1.5rem;" src="./bilder/Efferus_logo_black.png" width="100px"></a>
 
 <!-- HEADER -->
 <nav class="navbar" >
     
     <!-- LOGO -->
-    <div id=left_space class="logo"><a href="/NEW_index.html"><img src="../bilder/Efferus_logo_white.PNG" width="100px" alt="efferus_logo"/></a></div>
+    <div id=left_space class="logo"><a href="/index.html"><img src="bilder/Efferus_logo_white.PNG" width="100px" alt="efferus_logo"/></a></div>
     
     <!-- NAVIGATION MENU -->
     <ul class="nav-links">
@@ -41,11 +41,12 @@
         </li>
         <li><a href="./hvemer.html">Hvem er Efferus?</a></li>
         <li><a href="./vision.html">Vår visjon</a></li>
-        <li><a href="./visitUs.html">Besøk oss</a></li>
+        <li><a href="./events/visitUs.html">Besøk oss</a></li>
         <li><a href="./kontakt.html">Kontakt</a></li>
       </div>
     </ul>
 </nav>
+
 
 <main style="width: 70%; margin:auto; margin-top:5rem;">
     <h1 style="font-size: 3rem;">Besøk oss!</h1>
@@ -83,7 +84,7 @@
                                 <h1 id="EventTitle${i}"> </h1>
                                 <h3 id="date_of_event${i}"></h3>
                                 <h2 id="BriefDesc${i}"></h2>
-                                <h3><a href="../${data[i].path}"> ${ data[i].isAvailable ?'Meld deg på dette arrangementet' : 'Arrangementet er allerede bestått! Registrer deg for å bli varslet når den vil være tilgjengelig igjen' } </a></h3>
+                                <h3><a href="../${data[i].path_to_event ? data[i].path_to_event : data[i].path_to_newsletter}"> ${ data[i].path_to_event ?'Meld deg på dette arrangementet' : 'Arrangementet er allerede bestått! Registrer deg for å bli varslet når den vil være tilgjengelig igjen' } </a></h3>
                             </div>
                         </div>
                     `;
